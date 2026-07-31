@@ -1,14 +1,21 @@
 import socket
 
+HOST = "192.168.1.100"
+PORT = 8888
+
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect(('192.168.1.100', 8888))
+s.connect((HOST, PORT))
 
-data = input('Enter your name: ')
-data = data.encode('utf-8')
+try:
+    while True:
+        message = input("Enter message: ")
 
-s.sendall(data)
+        s.sendall(message.encode())
 
-data = s.recv(1024)
-s.close()
+        data = s.recv(1024)
+        print("Server:", data.decode())
 
-print('Received data:', data.decode('utf-8'))
+        if data == b"Exit":
+            break
+finally:
+    s.close()
