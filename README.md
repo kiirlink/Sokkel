@@ -6,7 +6,7 @@ A simple client-server project written in Python that demonstrates TCP socket co
 
 The project consists of two programs:
 
-* **sockel.py** – TCP server
+* **server.py** – TCP server
 * **client.py** – TCP client
 
 The client connects to the server, sends a user-entered name, and receives a response.
@@ -20,7 +20,7 @@ If the client sends the word `world`, the server replies with `Exit` and shuts d
 ```text
 Sokkel/
 ├── client.py      # TCP client
-├── socket.py      # TCP server
+├── server.py      # TCP server
 └── README.md
 ```
 
@@ -38,15 +38,15 @@ Sokkel/
 ## 1. Start the server
 
 ```bash
-python socket.py
+python3 server.py
 ```
 
 The server will start listening for incoming connections.
 
-## 2. Start the client
+## 2. Start the client in another terminal
 
 ```bash
-python client.py
+python3 client.py
 ```
 
 The client will ask for your name:
@@ -88,7 +88,7 @@ and then terminate.
 ---
 
 # Configuration
-
+You need to put your IP address in both the server.py and client.py file.
 The project uses the following default server address:
 
 ```python
@@ -98,7 +98,7 @@ The project uses the following default server address:
 If you are running the server on another computer or network, update the IP address in both files:
 
 * `client.py`
-* `socket.py`
+* `server.py`
 
 ---
 
